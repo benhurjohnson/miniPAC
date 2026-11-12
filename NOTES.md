@@ -88,6 +88,9 @@ Policy written in Rego with AI assistance and checked against the regulation.
 - Split list items (a), (b), (c) in code before extraction, which fixes the stitched quotes.
 - Accept quotes made of verbatim fragments in order, rather than one exact string.
 - Add scope and definition types to the schema, and define needs_interpretation tightly.
+-  Close the gap from extraction to Rego: define the claim's fact vocabulary first,
+  constrain extracted conditions to it, and compile the simple rules to Rego with code,
+  gated by the opa tests. Open terms and case law stay hand-written.
 - Build a gold set for Articles 3 and 5–8 before changing the prompt, then measure
   precision and recall on every prompt change in CI, and use it to compare models.
 - Fetch the official XML instead of copy-pasting the text.
