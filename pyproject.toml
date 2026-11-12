@@ -1,0 +1,24 @@
+[project]
+name = "eu261-pac"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.162.5",
+    "httpx>=0.28.1",
+    "instructor>=1.17.0",
+    "langgraph>=1.2.20",
+    "openai>=3.3.0",
+    "pydantic>=2.14.3",
+    "rank-bm25>=0.2.2",
+    "sentence-transformers>=6.3.0",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+eu261-pac = "eu261_pac:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
