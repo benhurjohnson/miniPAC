@@ -1,6 +1,4 @@
-import json
-import instructor
-import time
+import json, instructor, time, os
 from openai import OpenAI
 from pac.schema import Extraction, grounded
 from pac.split import split_articles
