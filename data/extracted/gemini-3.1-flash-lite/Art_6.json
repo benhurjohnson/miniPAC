@@ -1,0 +1,99 @@
+{
+  "rules": [
+    {
+      "source": "Art. 6(1)(a)",
+      "quote": "When an operating air carrier reasonably expects a flight to be delayed beyond its scheduled time of departure: (a)for two hours or more in the case of flights of 1500 kilometres or less... passengers shall be offered by the operating air carrier: (i)the assistance specified in Article 9(1)(a) and 9(2)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 9(1)(a) and 9(2)",
+      "conditions": [
+        {
+          "variable": "flight_distance_km",
+          "operator": "<=",
+          "value": 1500.0
+        },
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 2.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 6(1)(b)",
+      "quote": "When an operating air carrier reasonably expects a flight to be delayed beyond its scheduled time of departure: ... (b)for three hours or more in the case of all intra-Community flights of more than 1500 kilometres and of all other flights between 1500 and 3500 kilometres; ... passengers shall be offered by the operating air carrier: (i)the assistance specified in Article 9(1)(a) and 9(2)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 9(1)(a) and 9(2)",
+      "conditions": [
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 3.0
+        },
+        {
+          "variable": "flight_type",
+          "operator": "==",
+          "value": "intra_community_over_1500_km_or_other_1500_3500_km"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 6(1)(c)",
+      "quote": "When an operating air carrier reasonably expects a flight to be delayed beyond its scheduled time of departure: ... (c)for four hours or more in the case of all flights not falling under (a) or (b), passengers shall be offered by the operating air carrier: (i)the assistance specified in Article 9(1)(a) and 9(2)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 9(1)(a) and 9(2)",
+      "conditions": [
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 4.0
+        },
+        {
+          "variable": "flight_category",
+          "operator": "==",
+          "value": "other"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 6(1)(ii)",
+      "quote": "when the reasonably expected time of departure is at least the day after the time of departure previously announced, the assistance specified in Article 9(1)(b) and 9(1)(c)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 9(1)(b) and 9(1)(c)",
+      "conditions": [
+        {
+          "variable": "delay_is_next_day",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 6(1)(iii)",
+      "quote": "when the delay is at least five hours, the assistance specified in Article 8(1)(a)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 8(1)(a)",
+      "conditions": [
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 5.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    }
+  ]
+}

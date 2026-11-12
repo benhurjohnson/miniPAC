@@ -1,0 +1,51 @@
+{
+  "rules": [
+    {
+      "source": "Art. 13",
+      "quote": "In cases where an operating air carrier pays compensation or meets the other obligations incumbent on it under this Regulation, no provision of this Regulation may be interpreted as restricting its right to seek compensation from any person, including third parties, in accordance with the law applicable.",
+      "modality": "permission",
+      "bearer": "operating air carrier",
+      "action": "seek compensation from any person",
+      "conditions": [
+        {
+          "variable": "paid_compensation_or_met_obligations",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 13",
+      "quote": "In particular, this Regulation shall in no way restrict the operating air carrier's right to seek reimbursement from a tour operator or another person with whom the operating air carrier has a contract.",
+      "modality": "permission",
+      "bearer": "operating air carrier",
+      "action": "seek reimbursement from a tour operator or another person with whom the operating air carrier has a contract",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 13",
+      "quote": "Similarly, no provision of this Regulation may be interpreted as restricting the right of a tour operator or a third party, other than a passenger, with whom an operating air carrier has a contract, to seek reimbursement or compensation from the operating air carrier in accordance with applicable relevant laws.",
+      "modality": "permission",
+      "bearer": "tour operator or third party",
+      "action": "seek reimbursement or compensation from the operating air carrier",
+      "conditions": [
+        {
+          "variable": "is_passenger",
+          "operator": "==",
+          "value": false
+        },
+        {
+          "variable": "has_contract_with_operating_air_carrier",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}

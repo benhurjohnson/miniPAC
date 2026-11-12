@@ -1,0 +1,115 @@
+{
+  "rules": [
+    {
+      "source": "Art. 3(1)(a)",
+      "quote": "This Regulation shall apply: (a)to passengers departing from an airport located in the territory of a Member State to which the Treaty applies",
+      "modality": "obligation",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "departure_airport_location",
+          "operator": "==",
+          "value": "EU member state"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 3(1)(b)",
+      "quote": "This Regulation shall apply: (b)to passengers departing from an airport located in a third country to an airport situated in the territory of a Member State to which the Treaty applies, unless they received benefits or compensation and were given assistance in that third country, if the operating air carrier of the flight concerned is a Community carrier.",
+      "modality": "obligation",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "departure_airport_location",
+          "operator": "==",
+          "value": "third country"
+        },
+        {
+          "variable": "arrival_airport_location",
+          "operator": "==",
+          "value": "EU member state"
+        },
+        {
+          "variable": "carrier_is_community_carrier",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "received_benefits_in_third_country",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 3(3)",
+      "quote": "This Regulation shall not apply to passengers travelling free of charge or at a reduced fare not available directly or indirectly to the public.",
+      "modality": "prohibition",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "ticket_fare_type",
+          "operator": "==",
+          "value": "free of charge or non-public reduced fare"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 3(3)",
+      "quote": "However, it shall apply to passengers having tickets issued under a frequent flyer programme or other commercial programme by an air carrier or tour operator.",
+      "modality": "obligation",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "ticket_source",
+          "operator": "==",
+          "value": "frequent flyer or commercial programme"
+        }
+      ],
+      "exception_to": "Art. 3(3)",
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 3(4)",
+      "quote": "This Regulation shall only apply to passengers transported by motorised fixed wing aircraft.",
+      "modality": "obligation",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "aircraft_type",
+          "operator": "==",
+          "value": "motorised fixed wing"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 3(6)",
+      "quote": "This Regulation shall not apply in cases where a package tour is cancelled for reasons other than cancellation of the flight.",
+      "modality": "prohibition",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "reason_for_cancellation",
+          "operator": "!=",
+          "value": "flight cancellation"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    }
+  ]
+}

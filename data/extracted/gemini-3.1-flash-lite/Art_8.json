@@ -1,0 +1,72 @@
+{
+  "rules": [
+    {
+      "source": "Art. 8(1)(a)",
+      "quote": "reimbursement within seven days, by the means provided for in Article 7(3), of the full cost of the ticket at the price at which it was bought, for the part or parts of the journey not made, and for the part or parts already made if the flight is no longer serving any purpose in relation to the passenger's original travel plan, together with, when relevant, a return flight to the first point of departure, at the earliest opportunity",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer reimbursement of ticket cost",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 8(1)(b)",
+      "quote": "re-routing, under comparable transport conditions, to their final destination at the earliest opportunity",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer re-routing to final destination at earliest opportunity",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 8(1)(c)",
+      "quote": "re-routing, under comparable transport conditions, to their final destination at a later date at the passenger's convenience, subject to availability of seats.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer re-routing to final destination at a later date",
+      "conditions": [
+        {
+          "variable": "seat_availability",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 8(2)",
+      "quote": "Paragraph 1(a) shall also apply to passengers whose flights form part of a package, except for the right to reimbursement where such right arises under Directive 90/314/EEC.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer reimbursement to passengers on package tours",
+      "conditions": [
+        {
+          "variable": "reimbursement_covered_by_directive_90_314_EEC",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": "Directive 90/314/EEC",
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 8(3)",
+      "quote": "the operating air carrier shall bear the cost of transferring the passenger from that alternative airport either to that for which the booking was made, or to another close-by destination agreed with the passenger.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "bear cost of transfer to original airport or agreed close-by destination",
+      "conditions": [
+        {
+          "variable": "passenger_offered_alternative_airport",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}

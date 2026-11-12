@@ -1,0 +1,36 @@
+{
+  "rules": [
+    {
+      "source": "Art. 17",
+      "quote": "The Commission shall report to the European Parliament and the Council by 1 January 2007 on the operation and the results of this Regulation, in particular regarding: the incidence of denied boarding and of cancellation of flights, - the possible extension of the scope of this Regulation to passengers having a contract with a Community carrier or holding a flight reservation which forms part of a \"package tour\" to which Directive 90/314/EEC applies and who depart from a third-country airport to an airport in a Member State, on flights not operated by Community air carriers, - the possible revision of the amounts of compensation referred to in Article 7(1).",
+      "modality": "obligation",
+      "bearer": "Commission",
+      "action": "report to the European Parliament and the Council by 1 January 2007 on the operation and the results of this Regulation",
+      "conditions": [
+        {
+          "variable": "date",
+          "operator": "<=",
+          "value": "2007-01-01"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 17",
+      "quote": "The report shall be accompanied where necessary by legislative proposals.",
+      "modality": "obligation",
+      "bearer": "Commission",
+      "action": "accompany the report with legislative proposals",
+      "conditions": [
+        {
+          "variable": "necessary",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "rules": [
+    {
+      "source": "Art. 11(1)",
+      "quote": "Operating air carriers shall give priority to carrying persons with reduced mobility and any persons or certified service dogs accompanying them, as well as unaccompanied children.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "give priority to carrying persons with reduced mobility, accompanying persons, certified service dogs, and unaccompanied children",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 11(2)",
+      "quote": "In cases of denied boarding, cancellation and delays of any length, persons with reduced mobility and any persons accompanying them, as well as unaccompanied children, shall have the right to care in accordance with Article 9 as soon as possible.",
+      "modality": "permission",
+      "bearer": "persons with reduced mobility, accompanying persons, unaccompanied children",
+      "action": "have the right to care in accordance with Article 9",
+      "conditions": [
+        {
+          "variable": "event_type",
+          "operator": "==",
+          "value": "denied boarding, cancellation or delay"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}

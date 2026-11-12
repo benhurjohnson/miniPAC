@@ -1,0 +1,78 @@
+{
+  "rules": [
+    {
+      "source": "Art. 9(1)(a)",
+      "quote": "Where reference is made to this Article, passengers shall be offered free of charge: (a)meals and refreshments in a reasonable relation to the waiting time;",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer meals and refreshments",
+      "conditions": [
+        {
+          "variable": "waiting_time",
+          "operator": ">",
+          "value": 0.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 9(1)(b)",
+      "quote": "Where reference is made to this Article, passengers shall be offered free of charge: (b)hotel accommodation in cases where a stay of one or more nights becomes necessary, or where a stay additional to that intended by the passenger becomes necessary;",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer hotel accommodation",
+      "conditions": [
+        {
+          "variable": "stay_necessity",
+          "operator": "==",
+          "value": "required"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 9(1)(c)",
+      "quote": "Where reference is made to this Article, passengers shall be offered free of charge: (c)transport between the airport and place of accommodation (hotel or other).",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer transport between airport and accommodation",
+      "conditions": [
+        {
+          "variable": "hotel_accommodation_provided",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 9(2)",
+      "quote": "In addition, passengers shall be offered free of charge two telephone calls, telex or fax messages, or e-mails.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer two communication methods",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 9(3)",
+      "quote": "In applying this Article, the operating air carrier shall pay particular attention to the needs of persons with reduced mobility and any persons accompanying them, as well as to the needs of unaccompanied children.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay particular attention to specific needs",
+      "conditions": [
+        {
+          "variable": "passenger_category",
+          "operator": "==",
+          "value": "vulnerable"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}

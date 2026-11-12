@@ -1,0 +1,72 @@
+{
+  "rules": [
+    {
+      "source": "Art. 14(1)",
+      "quote": "The operating air carrier shall ensure that at check-in a clearly legible notice containing the following text is displayed in a manner clearly visible to passengers: \"If you are denied boarding or if your flight is cancelled or delayed for at least two hours, ask at the check-in counter or boarding gate for the text stating your rights, particularly with regard to compensation and assistance\".",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "ensure display of notice stating passenger rights at check-in",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 14(2)",
+      "quote": "An operating air carrier denying boarding or cancelling a flight shall provide each passenger affected with a written notice setting out the rules for compensation and assistance in line with this Regulation.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide written notice regarding compensation and assistance",
+      "conditions": [
+        {
+          "variable": "event_type",
+          "operator": "==",
+          "value": "denied_boarding_or_cancellation"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 14(2)",
+      "quote": "It shall also provide each passenger affected by a delay of at least two hours with an equivalent notice.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide written notice regarding compensation and assistance",
+      "conditions": [
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 2.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 14(2)",
+      "quote": "The contact details of the national designated body referred to in Article 16 shall also be given to the passenger in written form.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide contact details of the national designated body in written form",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 14(3)",
+      "quote": "In respect of blind and visually impaired persons, the provisions of this Article shall be applied using appropriate alternative means.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "apply Art. 14 provisions using appropriate alternative means",
+      "conditions": [
+        {
+          "variable": "passenger_condition",
+          "operator": "==",
+          "value": "blind_or_visually_impaired"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "rules": [
+    {
+      "source": "Art. 12(1)",
+      "quote": "This Regulation shall apply without prejudice to a passenger's rights to further compensation.",
+      "modality": "permission",
+      "bearer": "passenger",
+      "action": "seek further compensation",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 12(1)",
+      "quote": "The compensation granted under this Regulation may be deducted from such compensation.",
+      "modality": "permission",
+      "bearer": "air carrier",
+      "action": "deduct compensation granted under this Regulation from further compensation",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 12(2)",
+      "quote": "Without prejudice to relevant principles and rules of national law, including case-law, paragraph 1 shall not apply to passengers who have voluntarily surrendered a reservation under Article 4(1).",
+      "modality": "prohibition",
+      "bearer": "air carrier",
+      "action": "deduct compensation granted under this Regulation from further compensation for passengers who voluntarily surrendered a reservation",
+      "conditions": [
+        {
+          "variable": "voluntarily_surrendered_reservation",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": "Art. 12(1)",
+      "needs_interpretation": false
+    }
+  ]
+}

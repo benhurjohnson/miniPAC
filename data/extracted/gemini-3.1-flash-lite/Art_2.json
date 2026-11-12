@@ -1,0 +1,25 @@
+{
+  "rules": [
+    {
+      "source": "Art. 2(j)",
+      "quote": "“denied boarding” means a refusal to carry passengers on a flight, although they have presented themselves for boarding under the conditions laid down in Article 3(2), except where there are reasonable grounds to deny them boarding, such as reasons of health, safety or security, or inadequate travel documentation;",
+      "modality": "prohibition",
+      "bearer": "operating air carrier",
+      "action": "refuse to carry passengers",
+      "conditions": [
+        {
+          "variable": "passenger_presented_for_boarding",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "reasonable_grounds",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}

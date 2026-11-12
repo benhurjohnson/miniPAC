@@ -1,0 +1,115 @@
+{
+  "rules": [
+    {
+      "source": "Art. 5(1)(a)",
+      "quote": "In case of cancellation of a flight, the passengers concerned shall: (a)be offered assistance by the operating air carrier in accordance with Article 8",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance in accordance with Article 8",
+      "conditions": [
+        {
+          "variable": "flight_cancelled",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 5(1)(b)",
+      "quote": "In case of cancellation of a flight, the passengers concerned shall: [...] (b)be offered assistance by the operating air carrier in accordance with Article 9(1)(a) and 9(2)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance in accordance with Article 9(1)(a) and 9(2)",
+      "conditions": [
+        {
+          "variable": "flight_cancelled",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 5(1)(b)",
+      "quote": "as well as, in event of re-routing when the reasonably expected time of departure of the new flight is at least the day after the departure as it was planned for the cancelled flight, the assistance specified in Article 9(1)(b) and 9(1)(c)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance in accordance with Article 9(1)(b) and 9(1)(c)",
+      "conditions": [
+        {
+          "variable": "re-routing_offered",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "departure_delay_days",
+          "operator": ">=",
+          "value": 1.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 5(1)(c)",
+      "quote": "have the right to compensation by the operating air carrier in accordance with Article 7",
+      "modality": "permission",
+      "bearer": "passenger",
+      "action": "claim compensation",
+      "conditions": [
+        {
+          "variable": "flight_cancelled",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 5(2)",
+      "quote": "When passengers are informed of the cancellation, an explanation shall be given concerning possible alternative transport.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide explanation of alternative transport",
+      "conditions": [
+        {
+          "variable": "passenger_informed_of_cancellation",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 5(3)",
+      "quote": "An operating air carrier shall not be obliged to pay compensation in accordance with Article 7, if it can prove that the cancellation is caused by extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken.",
+      "modality": "prohibition",
+      "bearer": "operating air carrier",
+      "action": "pay compensation",
+      "conditions": [
+        {
+          "variable": "extraordinary_circumstances",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": "Art. 5(1)(c)",
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 5(4)",
+      "quote": "The burden of proof concerning the questions as to whether and when the passenger has been informed of the cancellation of the flight shall rest with the operating air carrier.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "bear burden of proof regarding notification",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    }
+  ]
+}

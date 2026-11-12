@@ -1,0 +1,35 @@
+{
+  "rules": [
+    {
+      "source": "Art. 15(1)",
+      "quote": "Obligations vis-à-vis passengers pursuant to this Regulation may not be limited or waived, notably by a derogation or restrictive clause in the contract of carriage.",
+      "modality": "prohibition",
+      "bearer": "contracting parties",
+      "action": "limiting or waiving obligations towards passengers",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 15(2)",
+      "quote": "If, nevertheless, such a derogation or restrictive clause is applied in respect of a passenger, or if the passenger is not correctly informed of his rights and for that reason has accepted compensation which is inferior to that provided for in this Regulation, the passenger shall still be entitled to take the necessary proceedings before the competent courts or bodies in order to obtain additional compensation.",
+      "modality": "permission",
+      "bearer": "passenger",
+      "action": "take proceedings to obtain additional compensation",
+      "conditions": [
+        {
+          "variable": "derogation_applied",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "incorrect_information_received",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}

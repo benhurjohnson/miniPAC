@@ -1,0 +1,83 @@
+{
+  "rules": [
+    {
+      "source": "Art. 7(1)(a)",
+      "quote": "Where reference is made to this Article, passengers shall receive compensation amounting to: (a)EUR 250 for all flights of 1500 kilometres or less;",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay compensation of EUR 250",
+      "conditions": [
+        {
+          "variable": "flight_distance_km",
+          "operator": "<=",
+          "value": 1500.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 7(1)(b)",
+      "quote": "Where reference is made to this Article, passengers shall receive compensation amounting to: (b)EUR 400 for all intra-Community flights of more than 1500 kilometres, and for all other flights between 1500 and 3500 kilometres;",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay compensation of EUR 400",
+      "conditions": [
+        {
+          "variable": "flight_distance_km",
+          "operator": ">",
+          "value": 1500.0
+        },
+        {
+          "variable": "flight_distance_km",
+          "operator": "<=",
+          "value": 3500.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 7(1)(c)",
+      "quote": "Where reference is made to this Article, passengers shall receive compensation amounting to: (c)EUR 600 for all flights not falling under (a) or (b).",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay compensation of EUR 600",
+      "conditions": [
+        {
+          "variable": "flight_distance_km",
+          "operator": ">",
+          "value": 3500.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 7(2)",
+      "quote": "When passengers are offered re-routing to their final destination on an alternative flight pursuant to Article 8, the arrival time of which does not exceed the scheduled arrival time of the flight originally booked (a)by two hours, in respect of all flights of 1500 kilometres or less; or (b)by three hours, in respect of all intra-Community flights of more than 1500 kilometres and for all other flights between 1500 and 3500 kilometres; or (c)by four hours, in respect of all flights not falling under (a) or (b), the operating air carrier may reduce the compensation provided for in paragraph 1 by 50 %.",
+      "modality": "permission",
+      "bearer": "operating air carrier",
+      "action": "reduce compensation by 50%",
+      "conditions": [
+        {
+          "variable": "re_routing_offered",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": "Art. 7(1)",
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 7(3)",
+      "quote": "The compensation referred to in paragraph 1 shall be paid in cash, by electronic bank transfer, bank orders or bank cheques or, with the signed agreement of the passenger, in travel vouchers and/or other services.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay compensation via specified financial methods",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    }
+  ]
+}

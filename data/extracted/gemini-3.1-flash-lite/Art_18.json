@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {
+      "source": "Art. 18",
+      "quote": "Regulation (EEC) No 295/91 shall be repealed.",
+      "modality": "obligation",
+      "bearer": "EU legislative body",
+      "action": "repeal Regulation (EEC) No 295/91",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    }
+  ]
+}

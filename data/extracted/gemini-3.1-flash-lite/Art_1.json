@@ -1,0 +1,20 @@
+{
+  "rules": [
+    {
+      "source": "Art. 1(3)",
+      "quote": "Application of this Regulation to Gibraltar airport shall be suspended until the arrangements in the Joint Declaration made by the Foreign Ministers of the Kingdom of Spain and the United Kingdom on 2 December 1987 enter into operation.",
+      "modality": "prohibition",
+      "bearer": "EU institutions/Member States",
+      "action": "suspend application of this Regulation to Gibraltar airport",
+      "conditions": [
+        {
+          "variable": "arrangements_1987_joint_declaration_in_operation",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    }
+  ]
+}

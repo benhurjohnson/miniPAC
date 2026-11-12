@@ -1,0 +1,60 @@
+{
+  "rules": [
+    {
+      "source": "Art. 16(1)",
+      "quote": "Each Member State shall designate a body responsible for the enforcement of this Regulation as regards flights from airports situated on its territory and flights from a third country to such airports.",
+      "modality": "obligation",
+      "bearer": "Member State",
+      "action": "designate a body responsible for the enforcement of this Regulation",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 16(1)",
+      "quote": "Where appropriate, this body shall take the measures necessary to ensure that the rights of passengers are respected.",
+      "modality": "obligation",
+      "bearer": "designated body",
+      "action": "take measures necessary to ensure that the rights of passengers are respected",
+      "conditions": [
+        {
+          "variable": "appropriate",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 16(1)",
+      "quote": "The Member States shall inform the Commission of the body that has been designated in accordance with this paragraph.",
+      "modality": "obligation",
+      "bearer": "Member State",
+      "action": "inform the Commission of the body designated",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 16(2)",
+      "quote": "each passenger may complain to any body designated under paragraph 1, or to any other competent body designated by a Member State, about an alleged infringement of this Regulation at any airport situated on the territory of a Member State or concerning any flight from a third country to an airport situated on that territory.",
+      "modality": "permission",
+      "bearer": "passenger",
+      "action": "complain about an alleged infringement",
+      "conditions": [],
+      "exception_to": "Art. 12",
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 16(3)",
+      "quote": "The sanctions laid down by Member States for infringements of this Regulation shall be effective, proportionate and dissuasive.",
+      "modality": "obligation",
+      "bearer": "Member State",
+      "action": "lay down effective, proportionate and dissuasive sanctions",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}

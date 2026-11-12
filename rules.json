@@ -1,0 +1,1141 @@
+{
+  "rules": [
+    {
+      "source": "Art. 1(3)",
+      "quote": "Application of this Regulation to Gibraltar airport shall be suspended until the arrangements in the Joint Declaration made by the Foreign Ministers of the Kingdom of Spain and the United Kingdom on 2 December 1987 enter into operation.",
+      "modality": "prohibition",
+      "bearer": "EU institutions/Member States",
+      "action": "suspend application of this Regulation to Gibraltar airport",
+      "conditions": [
+        {
+          "variable": "arrangements_1987_joint_declaration_in_operation",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 1#1"
+    },
+    {
+      "source": "Art. 3(1)(a)",
+      "quote": "This Regulation shall apply: (a)to passengers departing from an airport located in the territory of a Member State to which the Treaty applies",
+      "modality": "obligation",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "departure_airport_location",
+          "operator": "==",
+          "value": "EU member state"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 3#1"
+    },
+    {
+      "source": "Art. 3(3)",
+      "quote": "This Regulation shall not apply to passengers travelling free of charge or at a reduced fare not available directly or indirectly to the public.",
+      "modality": "prohibition",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "ticket_fare_type",
+          "operator": "==",
+          "value": "free of charge or non-public reduced fare"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 3#3"
+    },
+    {
+      "source": "Art. 3(3)",
+      "quote": "However, it shall apply to passengers having tickets issued under a frequent flyer programme or other commercial programme by an air carrier or tour operator.",
+      "modality": "obligation",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "ticket_source",
+          "operator": "==",
+          "value": "frequent flyer or commercial programme"
+        }
+      ],
+      "exception_to": "Art. 3(3)",
+      "needs_interpretation": false,
+      "rule_id": "Art. 3#4"
+    },
+    {
+      "source": "Art. 3(4)",
+      "quote": "This Regulation shall only apply to passengers transported by motorised fixed wing aircraft.",
+      "modality": "obligation",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "aircraft_type",
+          "operator": "==",
+          "value": "motorised fixed wing"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 3#5"
+    },
+    {
+      "source": "Art. 3(6)",
+      "quote": "This Regulation shall not apply in cases where a package tour is cancelled for reasons other than cancellation of the flight.",
+      "modality": "prohibition",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "reason_for_cancellation",
+          "operator": "!=",
+          "value": "flight cancellation"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 3#6"
+    },
+    {
+      "source": "Art. 4(1)",
+      "quote": "When an operating air carrier reasonably expects to deny boarding on a flight, it shall first call for volunteers to surrender their reservations in exchange for benefits under conditions to be agreed between the passenger concerned and the operating air carrier.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "call for volunteers to surrender reservations",
+      "conditions": [
+        {
+          "variable": "expects_to_deny_boarding",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 4#1"
+    },
+    {
+      "source": "Art. 4(1)",
+      "quote": "Volunteers shall be assisted in accordance with Article 8, such assistance being additional to the benefits mentioned in this paragraph.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide assistance in accordance with Article 8",
+      "conditions": [
+        {
+          "variable": "is_volunteer",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 4#2"
+    },
+    {
+      "source": "Art. 4(2)",
+      "quote": "If an insufficient number of volunteers comes forward to allow the remaining passengers with reservations to board the flight, the operating air carrier may then deny boarding to passengers against their will.",
+      "modality": "permission",
+      "bearer": "operating air carrier",
+      "action": "deny boarding to passengers against their will",
+      "conditions": [
+        {
+          "variable": "insufficient_volunteers",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 4#3"
+    },
+    {
+      "source": "Art. 4(3)",
+      "quote": "If boarding is denied to passengers against their will, the operating air carrier shall immediately compensate them in accordance with Article 7 and assist them in accordance with Articles 8 and 9.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "compensate and assist passengers",
+      "conditions": [
+        {
+          "variable": "denied_boarding_against_will",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 4#4"
+    },
+    {
+      "source": "Art. 5(1)(a)",
+      "quote": "In case of cancellation of a flight, the passengers concerned shall: (a)be offered assistance by the operating air carrier in accordance with Article 8",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance in accordance with Article 8",
+      "conditions": [
+        {
+          "variable": "flight_cancelled",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 5#1"
+    },
+    {
+      "source": "Art. 5(1)(b)",
+      "quote": "as well as, in event of re-routing when the reasonably expected time of departure of the new flight is at least the day after the departure as it was planned for the cancelled flight, the assistance specified in Article 9(1)(b) and 9(1)(c)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance in accordance with Article 9(1)(b) and 9(1)(c)",
+      "conditions": [
+        {
+          "variable": "re-routing_offered",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "departure_delay_days",
+          "operator": ">=",
+          "value": 1.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 5#3"
+    },
+    {
+      "source": "Art. 5(1)(c)",
+      "quote": "have the right to compensation by the operating air carrier in accordance with Article 7",
+      "modality": "permission",
+      "bearer": "passenger",
+      "action": "claim compensation",
+      "conditions": [
+        {
+          "variable": "flight_cancelled",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 5#4"
+    },
+    {
+      "source": "Art. 5(2)",
+      "quote": "When passengers are informed of the cancellation, an explanation shall be given concerning possible alternative transport.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide explanation of alternative transport",
+      "conditions": [
+        {
+          "variable": "passenger_informed_of_cancellation",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 5#5"
+    },
+    {
+      "source": "Art. 5(3)",
+      "quote": "An operating air carrier shall not be obliged to pay compensation in accordance with Article 7, if it can prove that the cancellation is caused by extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken.",
+      "modality": "prohibition",
+      "bearer": "operating air carrier",
+      "action": "pay compensation",
+      "conditions": [
+        {
+          "variable": "extraordinary_circumstances",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": "Art. 5(1)(c)",
+      "needs_interpretation": true,
+      "rule_id": "Art. 5#6"
+    },
+    {
+      "source": "Art. 5(4)",
+      "quote": "The burden of proof concerning the questions as to whether and when the passenger has been informed of the cancellation of the flight shall rest with the operating air carrier.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "bear burden of proof regarding notification",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 5#7"
+    },
+    {
+      "source": "Art. 6(1)(ii)",
+      "quote": "when the reasonably expected time of departure is at least the day after the time of departure previously announced, the assistance specified in Article 9(1)(b) and 9(1)(c)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 9(1)(b) and 9(1)(c)",
+      "conditions": [
+        {
+          "variable": "delay_is_next_day",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 6#4"
+    },
+    {
+      "source": "Art. 6(1)(iii)",
+      "quote": "when the delay is at least five hours, the assistance specified in Article 8(1)(a)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 8(1)(a)",
+      "conditions": [
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 5.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 6#5"
+    },
+    {
+      "source": "Art. 7(1)(a)",
+      "quote": "Where reference is made to this Article, passengers shall receive compensation amounting to: (a)EUR 250 for all flights of 1500 kilometres or less;",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay compensation of EUR 250",
+      "conditions": [
+        {
+          "variable": "flight_distance_km",
+          "operator": "<=",
+          "value": 1500.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 7#1"
+    },
+    {
+      "source": "Art. 7(2)",
+      "quote": "When passengers are offered re-routing to their final destination on an alternative flight pursuant to Article 8, the arrival time of which does not exceed the scheduled arrival time of the flight originally booked (a)by two hours, in respect of all flights of 1500 kilometres or less; or (b)by three hours, in respect of all intra-Community flights of more than 1500 kilometres and for all other flights between 1500 and 3500 kilometres; or (c)by four hours, in respect of all flights not falling under (a) or (b), the operating air carrier may reduce the compensation provided for in paragraph 1 by 50 %.",
+      "modality": "permission",
+      "bearer": "operating air carrier",
+      "action": "reduce compensation by 50%",
+      "conditions": [
+        {
+          "variable": "re_routing_offered",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": "Art. 7(1)",
+      "needs_interpretation": true,
+      "rule_id": "Art. 7#4"
+    },
+    {
+      "source": "Art. 7(3)",
+      "quote": "The compensation referred to in paragraph 1 shall be paid in cash, by electronic bank transfer, bank orders or bank cheques or, with the signed agreement of the passenger, in travel vouchers and/or other services.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay compensation via specified financial methods",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 7#5"
+    },
+    {
+      "source": "Art. 8(1)(b)",
+      "quote": "re-routing, under comparable transport conditions, to their final destination at the earliest opportunity",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer re-routing to final destination at earliest opportunity",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 8#2"
+    },
+    {
+      "source": "Art. 8(1)(c)",
+      "quote": "re-routing, under comparable transport conditions, to their final destination at a later date at the passenger's convenience, subject to availability of seats.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer re-routing to final destination at a later date",
+      "conditions": [
+        {
+          "variable": "seat_availability",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 8#3"
+    },
+    {
+      "source": "Art. 8(2)",
+      "quote": "Paragraph 1(a) shall also apply to passengers whose flights form part of a package, except for the right to reimbursement where such right arises under Directive 90/314/EEC.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer reimbursement to passengers on package tours",
+      "conditions": [
+        {
+          "variable": "reimbursement_covered_by_directive_90_314_EEC",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": "Directive 90/314/EEC",
+      "needs_interpretation": false,
+      "rule_id": "Art. 8#4"
+    },
+    {
+      "source": "Art. 8(3)",
+      "quote": "the operating air carrier shall bear the cost of transferring the passenger from that alternative airport either to that for which the booking was made, or to another close-by destination agreed with the passenger.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "bear cost of transfer to original airport or agreed close-by destination",
+      "conditions": [
+        {
+          "variable": "passenger_offered_alternative_airport",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 8#5"
+    },
+    {
+      "source": "Art. 9(1)(a)",
+      "quote": "Where reference is made to this Article, passengers shall be offered free of charge: (a)meals and refreshments in a reasonable relation to the waiting time;",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer meals and refreshments",
+      "conditions": [
+        {
+          "variable": "waiting_time",
+          "operator": ">",
+          "value": 0.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 9#1"
+    },
+    {
+      "source": "Art. 9(2)",
+      "quote": "In addition, passengers shall be offered free of charge two telephone calls, telex or fax messages, or e-mails.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer two communication methods",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 9#4"
+    },
+    {
+      "source": "Art. 9(3)",
+      "quote": "In applying this Article, the operating air carrier shall pay particular attention to the needs of persons with reduced mobility and any persons accompanying them, as well as to the needs of unaccompanied children.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay particular attention to specific needs",
+      "conditions": [
+        {
+          "variable": "passenger_category",
+          "operator": "==",
+          "value": "vulnerable"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 9#5"
+    },
+    {
+      "source": "Art. 10(1)",
+      "quote": "If an operating air carrier places a passenger in a class higher than that for which the ticket was purchased, it may not request any supplementary payment.",
+      "modality": "prohibition",
+      "bearer": "operating air carrier",
+      "action": "request supplementary payment",
+      "conditions": [
+        {
+          "variable": "class_assigned",
+          "operator": ">",
+          "value": "class_purchased"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 10#1"
+    },
+    {
+      "source": "Art. 11(1)",
+      "quote": "Operating air carriers shall give priority to carrying persons with reduced mobility and any persons or certified service dogs accompanying them, as well as unaccompanied children.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "give priority to carrying persons with reduced mobility, accompanying persons, certified service dogs, and unaccompanied children",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 11#1"
+    },
+    {
+      "source": "Art. 11(2)",
+      "quote": "In cases of denied boarding, cancellation and delays of any length, persons with reduced mobility and any persons accompanying them, as well as unaccompanied children, shall have the right to care in accordance with Article 9 as soon as possible.",
+      "modality": "permission",
+      "bearer": "persons with reduced mobility, accompanying persons, unaccompanied children",
+      "action": "have the right to care in accordance with Article 9",
+      "conditions": [
+        {
+          "variable": "event_type",
+          "operator": "==",
+          "value": "denied boarding, cancellation or delay"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 11#2"
+    },
+    {
+      "source": "Art. 12(1)",
+      "quote": "This Regulation shall apply without prejudice to a passenger's rights to further compensation.",
+      "modality": "permission",
+      "bearer": "passenger",
+      "action": "seek further compensation",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 12#1"
+    },
+    {
+      "source": "Art. 12(1)",
+      "quote": "The compensation granted under this Regulation may be deducted from such compensation.",
+      "modality": "permission",
+      "bearer": "air carrier",
+      "action": "deduct compensation granted under this Regulation from further compensation",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 12#2"
+    },
+    {
+      "source": "Art. 12(2)",
+      "quote": "Without prejudice to relevant principles and rules of national law, including case-law, paragraph 1 shall not apply to passengers who have voluntarily surrendered a reservation under Article 4(1).",
+      "modality": "prohibition",
+      "bearer": "air carrier",
+      "action": "deduct compensation granted under this Regulation from further compensation for passengers who voluntarily surrendered a reservation",
+      "conditions": [
+        {
+          "variable": "voluntarily_surrendered_reservation",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": "Art. 12(1)",
+      "needs_interpretation": false,
+      "rule_id": "Art. 12#3"
+    },
+    {
+      "source": "Art. 13",
+      "quote": "In cases where an operating air carrier pays compensation or meets the other obligations incumbent on it under this Regulation, no provision of this Regulation may be interpreted as restricting its right to seek compensation from any person, including third parties, in accordance with the law applicable.",
+      "modality": "permission",
+      "bearer": "operating air carrier",
+      "action": "seek compensation from any person",
+      "conditions": [
+        {
+          "variable": "paid_compensation_or_met_obligations",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 13#1"
+    },
+    {
+      "source": "Art. 13",
+      "quote": "In particular, this Regulation shall in no way restrict the operating air carrier's right to seek reimbursement from a tour operator or another person with whom the operating air carrier has a contract.",
+      "modality": "permission",
+      "bearer": "operating air carrier",
+      "action": "seek reimbursement from a tour operator or another person with whom the operating air carrier has a contract",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 13#2"
+    },
+    {
+      "source": "Art. 13",
+      "quote": "Similarly, no provision of this Regulation may be interpreted as restricting the right of a tour operator or a third party, other than a passenger, with whom an operating air carrier has a contract, to seek reimbursement or compensation from the operating air carrier in accordance with applicable relevant laws.",
+      "modality": "permission",
+      "bearer": "tour operator or third party",
+      "action": "seek reimbursement or compensation from the operating air carrier",
+      "conditions": [
+        {
+          "variable": "is_passenger",
+          "operator": "==",
+          "value": false
+        },
+        {
+          "variable": "has_contract_with_operating_air_carrier",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 13#3"
+    },
+    {
+      "source": "Art. 14(1)",
+      "quote": "The operating air carrier shall ensure that at check-in a clearly legible notice containing the following text is displayed in a manner clearly visible to passengers: \"If you are denied boarding or if your flight is cancelled or delayed for at least two hours, ask at the check-in counter or boarding gate for the text stating your rights, particularly with regard to compensation and assistance\".",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "ensure display of notice stating passenger rights at check-in",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 14#1"
+    },
+    {
+      "source": "Art. 14(2)",
+      "quote": "An operating air carrier denying boarding or cancelling a flight shall provide each passenger affected with a written notice setting out the rules for compensation and assistance in line with this Regulation.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide written notice regarding compensation and assistance",
+      "conditions": [
+        {
+          "variable": "event_type",
+          "operator": "==",
+          "value": "denied_boarding_or_cancellation"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 14#2"
+    },
+    {
+      "source": "Art. 14(2)",
+      "quote": "It shall also provide each passenger affected by a delay of at least two hours with an equivalent notice.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide written notice regarding compensation and assistance",
+      "conditions": [
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 2.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 14#3"
+    },
+    {
+      "source": "Art. 14(2)",
+      "quote": "The contact details of the national designated body referred to in Article 16 shall also be given to the passenger in written form.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide contact details of the national designated body in written form",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 14#4"
+    },
+    {
+      "source": "Art. 14(3)",
+      "quote": "In respect of blind and visually impaired persons, the provisions of this Article shall be applied using appropriate alternative means.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "apply Art. 14 provisions using appropriate alternative means",
+      "conditions": [
+        {
+          "variable": "passenger_condition",
+          "operator": "==",
+          "value": "blind_or_visually_impaired"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 14#5"
+    },
+    {
+      "source": "Art. 15(1)",
+      "quote": "Obligations vis-\u00e0-vis passengers pursuant to this Regulation may not be limited or waived, notably by a derogation or restrictive clause in the contract of carriage.",
+      "modality": "prohibition",
+      "bearer": "contracting parties",
+      "action": "limiting or waiving obligations towards passengers",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 15#1"
+    },
+    {
+      "source": "Art. 15(2)",
+      "quote": "If, nevertheless, such a derogation or restrictive clause is applied in respect of a passenger, or if the passenger is not correctly informed of his rights and for that reason has accepted compensation which is inferior to that provided for in this Regulation, the passenger shall still be entitled to take the necessary proceedings before the competent courts or bodies in order to obtain additional compensation.",
+      "modality": "permission",
+      "bearer": "passenger",
+      "action": "take proceedings to obtain additional compensation",
+      "conditions": [
+        {
+          "variable": "derogation_applied",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "incorrect_information_received",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 15#2"
+    },
+    {
+      "source": "Art. 16(1)",
+      "quote": "Each Member State shall designate a body responsible for the enforcement of this Regulation as regards flights from airports situated on its territory and flights from a third country to such airports.",
+      "modality": "obligation",
+      "bearer": "Member State",
+      "action": "designate a body responsible for the enforcement of this Regulation",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 16#1"
+    },
+    {
+      "source": "Art. 16(1)",
+      "quote": "Where appropriate, this body shall take the measures necessary to ensure that the rights of passengers are respected.",
+      "modality": "obligation",
+      "bearer": "designated body",
+      "action": "take measures necessary to ensure that the rights of passengers are respected",
+      "conditions": [
+        {
+          "variable": "appropriate",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 16#2"
+    },
+    {
+      "source": "Art. 16(1)",
+      "quote": "The Member States shall inform the Commission of the body that has been designated in accordance with this paragraph.",
+      "modality": "obligation",
+      "bearer": "Member State",
+      "action": "inform the Commission of the body designated",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 16#3"
+    },
+    {
+      "source": "Art. 16(2)",
+      "quote": "each passenger may complain to any body designated under paragraph 1, or to any other competent body designated by a Member State, about an alleged infringement of this Regulation at any airport situated on the territory of a Member State or concerning any flight from a third country to an airport situated on that territory.",
+      "modality": "permission",
+      "bearer": "passenger",
+      "action": "complain about an alleged infringement",
+      "conditions": [],
+      "exception_to": "Art. 12",
+      "needs_interpretation": true,
+      "rule_id": "Art. 16#4"
+    },
+    {
+      "source": "Art. 16(3)",
+      "quote": "The sanctions laid down by Member States for infringements of this Regulation shall be effective, proportionate and dissuasive.",
+      "modality": "obligation",
+      "bearer": "Member State",
+      "action": "lay down effective, proportionate and dissuasive sanctions",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 16#5"
+    },
+    {
+      "source": "Art. 17",
+      "quote": "The Commission shall report to the European Parliament and the Council by 1 January 2007 on the operation and the results of this Regulation, in particular regarding: the incidence of denied boarding and of cancellation of flights, - the possible extension of the scope of this Regulation to passengers having a contract with a Community carrier or holding a flight reservation which forms part of a \"package tour\" to which Directive 90/314/EEC applies and who depart from a third-country airport to an airport in a Member State, on flights not operated by Community air carriers, - the possible revision of the amounts of compensation referred to in Article 7(1).",
+      "modality": "obligation",
+      "bearer": "Commission",
+      "action": "report to the European Parliament and the Council by 1 January 2007 on the operation and the results of this Regulation",
+      "conditions": [
+        {
+          "variable": "date",
+          "operator": "<=",
+          "value": "2007-01-01"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 17#1"
+    },
+    {
+      "source": "Art. 17",
+      "quote": "The report shall be accompanied where necessary by legislative proposals.",
+      "modality": "obligation",
+      "bearer": "Commission",
+      "action": "accompany the report with legislative proposals",
+      "conditions": [
+        {
+          "variable": "necessary",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 17#2"
+    },
+    {
+      "source": "Art. 18",
+      "quote": "Regulation (EEC) No 295/91 shall be repealed.",
+      "modality": "obligation",
+      "bearer": "EU legislative body",
+      "action": "repeal Regulation (EEC) No 295/91",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 18#1"
+    },
+    {
+      "source": "Art. 19(1)",
+      "quote": "This Regulation shall enter into force on 17 February 2005.",
+      "modality": "obligation",
+      "bearer": "Regulation",
+      "action": "enter into force",
+      "conditions": [
+        {
+          "variable": "date",
+          "operator": "==",
+          "value": "2005-02-17"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 19#1"
+    },
+    {
+      "source": "Art. 19(2)",
+      "quote": "This Regulation shall be binding in its entirety and directly applicable in all Member States.",
+      "modality": "obligation",
+      "bearer": "Regulation",
+      "action": "be binding in its entirety and directly applicable",
+      "conditions": [
+        {
+          "variable": "entity",
+          "operator": "==",
+          "value": "Member States"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 19#2"
+    }
+  ],
+  "ungrounded": [
+    {
+      "source": "Art. 2(j)",
+      "quote": "\u201cdenied boarding\u201d means a refusal to carry passengers on a flight, although they have presented themselves for boarding under the conditions laid down in Article 3(2), except where there are reasonable grounds to deny them boarding, such as reasons of health, safety or security, or inadequate travel documentation;",
+      "modality": "prohibition",
+      "bearer": "operating air carrier",
+      "action": "refuse to carry passengers",
+      "conditions": [
+        {
+          "variable": "passenger_presented_for_boarding",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "reasonable_grounds",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 2#1"
+    },
+    {
+      "source": "Art. 3(1)(b)",
+      "quote": "This Regulation shall apply: (b)to passengers departing from an airport located in a third country to an airport situated in the territory of a Member State to which the Treaty applies, unless they received benefits or compensation and were given assistance in that third country, if the operating air carrier of the flight concerned is a Community carrier.",
+      "modality": "obligation",
+      "bearer": "Operating air carrier",
+      "action": "apply the regulation",
+      "conditions": [
+        {
+          "variable": "departure_airport_location",
+          "operator": "==",
+          "value": "third country"
+        },
+        {
+          "variable": "arrival_airport_location",
+          "operator": "==",
+          "value": "EU member state"
+        },
+        {
+          "variable": "carrier_is_community_carrier",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "received_benefits_in_third_country",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 3#2"
+    },
+    {
+      "source": "Art. 5(1)(b)",
+      "quote": "In case of cancellation of a flight, the passengers concerned shall: [...] (b)be offered assistance by the operating air carrier in accordance with Article 9(1)(a) and 9(2)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance in accordance with Article 9(1)(a) and 9(2)",
+      "conditions": [
+        {
+          "variable": "flight_cancelled",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 5#2"
+    },
+    {
+      "source": "Art. 6(1)(a)",
+      "quote": "When an operating air carrier reasonably expects a flight to be delayed beyond its scheduled time of departure: (a)for two hours or more in the case of flights of 1500 kilometres or less... passengers shall be offered by the operating air carrier: (i)the assistance specified in Article 9(1)(a) and 9(2)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 9(1)(a) and 9(2)",
+      "conditions": [
+        {
+          "variable": "flight_distance_km",
+          "operator": "<=",
+          "value": 1500.0
+        },
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 2.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 6#1"
+    },
+    {
+      "source": "Art. 6(1)(b)",
+      "quote": "When an operating air carrier reasonably expects a flight to be delayed beyond its scheduled time of departure: ... (b)for three hours or more in the case of all intra-Community flights of more than 1500 kilometres and of all other flights between 1500 and 3500 kilometres; ... passengers shall be offered by the operating air carrier: (i)the assistance specified in Article 9(1)(a) and 9(2)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 9(1)(a) and 9(2)",
+      "conditions": [
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 3.0
+        },
+        {
+          "variable": "flight_type",
+          "operator": "==",
+          "value": "intra_community_over_1500_km_or_other_1500_3500_km"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 6#2"
+    },
+    {
+      "source": "Art. 6(1)(c)",
+      "quote": "When an operating air carrier reasonably expects a flight to be delayed beyond its scheduled time of departure: ... (c)for four hours or more in the case of all flights not falling under (a) or (b), passengers shall be offered by the operating air carrier: (i)the assistance specified in Article 9(1)(a) and 9(2)",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer assistance specified in Article 9(1)(a) and 9(2)",
+      "conditions": [
+        {
+          "variable": "delay_hours",
+          "operator": ">=",
+          "value": 4.0
+        },
+        {
+          "variable": "flight_category",
+          "operator": "==",
+          "value": "other"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 6#3"
+    },
+    {
+      "source": "Art. 7(1)(b)",
+      "quote": "Where reference is made to this Article, passengers shall receive compensation amounting to: (b)EUR 400 for all intra-Community flights of more than 1500 kilometres, and for all other flights between 1500 and 3500 kilometres;",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay compensation of EUR 400",
+      "conditions": [
+        {
+          "variable": "flight_distance_km",
+          "operator": ">",
+          "value": 1500.0
+        },
+        {
+          "variable": "flight_distance_km",
+          "operator": "<=",
+          "value": 3500.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 7#2"
+    },
+    {
+      "source": "Art. 7(1)(c)",
+      "quote": "Where reference is made to this Article, passengers shall receive compensation amounting to: (c)EUR 600 for all flights not falling under (a) or (b).",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "pay compensation of EUR 600",
+      "conditions": [
+        {
+          "variable": "flight_distance_km",
+          "operator": ">",
+          "value": 3500.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 7#3"
+    },
+    {
+      "source": "Art. 8(1)(a)",
+      "quote": "reimbursement within seven days, by the means provided for in Article 7(3), of the full cost of the ticket at the price at which it was bought, for the part or parts of the journey not made, and for the part or parts already made if the flight is no longer serving any purpose in relation to the passenger's original travel plan, together with, when relevant, a return flight to the first point of departure, at the earliest opportunity",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer reimbursement of ticket cost",
+      "conditions": [],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 8#1"
+    },
+    {
+      "source": "Art. 9(1)(b)",
+      "quote": "Where reference is made to this Article, passengers shall be offered free of charge: (b)hotel accommodation in cases where a stay of one or more nights becomes necessary, or where a stay additional to that intended by the passenger becomes necessary;",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer hotel accommodation",
+      "conditions": [
+        {
+          "variable": "stay_necessity",
+          "operator": "==",
+          "value": "required"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 9#2"
+    },
+    {
+      "source": "Art. 9(1)(c)",
+      "quote": "Where reference is made to this Article, passengers shall be offered free of charge: (c)transport between the airport and place of accommodation (hotel or other).",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "offer transport between airport and accommodation",
+      "conditions": [
+        {
+          "variable": "hotel_accommodation_provided",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 9#3"
+    },
+    {
+      "source": "Art. 10(2)",
+      "quote": "If an operating air carrier places a passenger in a class lower than that for which the ticket was purchased, it shall within seven days, by the means provided for in Article 7(3), reimburse (a) 30 % of the price of the ticket for all flights of 1500 kilometres or less",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "reimburse 30% of the price of the ticket",
+      "conditions": [
+        {
+          "variable": "class_assigned",
+          "operator": "<",
+          "value": "class_purchased"
+        },
+        {
+          "variable": "flight_distance_km",
+          "operator": "<=",
+          "value": 1500.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 10#2"
+    },
+    {
+      "source": "Art. 10(2)(b)",
+      "quote": "If an operating air carrier places a passenger in a class lower than that for which the ticket was purchased, it shall within seven days, by the means provided for in Article 7(3), reimburse ... (b) 50 % of the price of the ticket for all intra-Community flights of more than 1500 kilometres, except flights between the European territory of the Member States and the French overseas departments, and for all other flights between 1500 and 3500 kilometres",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "reimburse 50% of the price of the ticket",
+      "conditions": [
+        {
+          "variable": "class_assigned",
+          "operator": "<",
+          "value": "class_purchased"
+        },
+        {
+          "variable": "flight_distance_km",
+          "operator": ">",
+          "value": 1500.0
+        },
+        {
+          "variable": "is_intra_community",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "is_french_overseas_route",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false,
+      "rule_id": "Art. 10#3"
+    },
+    {
+      "source": "Art. 10(2)(c)",
+      "quote": "If an operating air carrier places a passenger in a class lower than that for which the ticket was purchased, it shall within seven days, by the means provided for in Article 7(3), reimburse ... (c) 75 % of the price of the ticket for all flights not falling under (a) or (b), including flights between the European territory of the Member States and the French overseas departments.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "reimburse 75% of the price of the ticket",
+      "conditions": [
+        {
+          "variable": "class_assigned",
+          "operator": "<",
+          "value": "class_purchased"
+        },
+        {
+          "variable": "meets_category_a_or_b",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true,
+      "rule_id": "Art. 10#4"
+    }
+  ],
+  "failed": []
+}

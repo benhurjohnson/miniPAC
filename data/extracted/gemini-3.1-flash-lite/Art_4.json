@@ -1,0 +1,68 @@
+{
+  "rules": [
+    {
+      "source": "Art. 4(1)",
+      "quote": "When an operating air carrier reasonably expects to deny boarding on a flight, it shall first call for volunteers to surrender their reservations in exchange for benefits under conditions to be agreed between the passenger concerned and the operating air carrier.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "call for volunteers to surrender reservations",
+      "conditions": [
+        {
+          "variable": "expects_to_deny_boarding",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 4(1)",
+      "quote": "Volunteers shall be assisted in accordance with Article 8, such assistance being additional to the benefits mentioned in this paragraph.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "provide assistance in accordance with Article 8",
+      "conditions": [
+        {
+          "variable": "is_volunteer",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 4(2)",
+      "quote": "If an insufficient number of volunteers comes forward to allow the remaining passengers with reservations to board the flight, the operating air carrier may then deny boarding to passengers against their will.",
+      "modality": "permission",
+      "bearer": "operating air carrier",
+      "action": "deny boarding to passengers against their will",
+      "conditions": [
+        {
+          "variable": "insufficient_volunteers",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    },
+    {
+      "source": "Art. 4(3)",
+      "quote": "If boarding is denied to passengers against their will, the operating air carrier shall immediately compensate them in accordance with Article 7 and assist them in accordance with Articles 8 and 9.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "compensate and assist passengers",
+      "conditions": [
+        {
+          "variable": "denied_boarding_against_will",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    }
+  ]
+}

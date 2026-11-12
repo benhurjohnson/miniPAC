@@ -1,0 +1,36 @@
+{
+  "rules": [
+    {
+      "source": "Art. 19(1)",
+      "quote": "This Regulation shall enter into force on 17 February 2005.",
+      "modality": "obligation",
+      "bearer": "Regulation",
+      "action": "enter into force",
+      "conditions": [
+        {
+          "variable": "date",
+          "operator": "==",
+          "value": "2005-02-17"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 19(2)",
+      "quote": "This Regulation shall be binding in its entirety and directly applicable in all Member States.",
+      "modality": "obligation",
+      "bearer": "Regulation",
+      "action": "be binding in its entirety and directly applicable",
+      "conditions": [
+        {
+          "variable": "entity",
+          "operator": "==",
+          "value": "Member States"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    }
+  ]
+}

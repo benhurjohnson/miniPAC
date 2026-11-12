@@ -1,0 +1,93 @@
+{
+  "rules": [
+    {
+      "source": "Art. 10(1)",
+      "quote": "If an operating air carrier places a passenger in a class higher than that for which the ticket was purchased, it may not request any supplementary payment.",
+      "modality": "prohibition",
+      "bearer": "operating air carrier",
+      "action": "request supplementary payment",
+      "conditions": [
+        {
+          "variable": "class_assigned",
+          "operator": ">",
+          "value": "class_purchased"
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 10(2)",
+      "quote": "If an operating air carrier places a passenger in a class lower than that for which the ticket was purchased, it shall within seven days, by the means provided for in Article 7(3), reimburse (a) 30 % of the price of the ticket for all flights of 1500 kilometres or less",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "reimburse 30% of the price of the ticket",
+      "conditions": [
+        {
+          "variable": "class_assigned",
+          "operator": "<",
+          "value": "class_purchased"
+        },
+        {
+          "variable": "flight_distance_km",
+          "operator": "<=",
+          "value": 1500.0
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 10(2)(b)",
+      "quote": "If an operating air carrier places a passenger in a class lower than that for which the ticket was purchased, it shall within seven days, by the means provided for in Article 7(3), reimburse ... (b) 50 % of the price of the ticket for all intra-Community flights of more than 1500 kilometres, except flights between the European territory of the Member States and the French overseas departments, and for all other flights between 1500 and 3500 kilometres",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "reimburse 50% of the price of the ticket",
+      "conditions": [
+        {
+          "variable": "class_assigned",
+          "operator": "<",
+          "value": "class_purchased"
+        },
+        {
+          "variable": "flight_distance_km",
+          "operator": ">",
+          "value": 1500.0
+        },
+        {
+          "variable": "is_intra_community",
+          "operator": "==",
+          "value": true
+        },
+        {
+          "variable": "is_french_overseas_route",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": false
+    },
+    {
+      "source": "Art. 10(2)(c)",
+      "quote": "If an operating air carrier places a passenger in a class lower than that for which the ticket was purchased, it shall within seven days, by the means provided for in Article 7(3), reimburse ... (c) 75 % of the price of the ticket for all flights not falling under (a) or (b), including flights between the European territory of the Member States and the French overseas departments.",
+      "modality": "obligation",
+      "bearer": "operating air carrier",
+      "action": "reimburse 75% of the price of the ticket",
+      "conditions": [
+        {
+          "variable": "class_assigned",
+          "operator": "<",
+          "value": "class_purchased"
+        },
+        {
+          "variable": "meets_category_a_or_b",
+          "operator": "==",
+          "value": false
+        }
+      ],
+      "exception_to": null,
+      "needs_interpretation": true
+    }
+  ]
+}
