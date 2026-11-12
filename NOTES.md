@@ -7,13 +7,18 @@ Policy written in Rego with AI assistance and checked against the regulation.
 ## Results
 - Extraction: 68 rules from 19 articles. 54 passed the quote check, 14 were rejected,
   0 failed.
-- Policy: fill in (expect: all 7 opa tests pass). Where the text runs out: delay
-  compensation comes from case law (Sturgeon); extraordinary circumstances go to a
-  person; the carrier's option to halve is flagged, not applied. A flight of exactly
-  3,500 km counts as medium.
-- API: fill in (expect: /decide returns EUR 250 for the short-flight example).
-- Agent: fill in (expect: an extraordinary-circumstances claim pauses for a person,
-  then resumes).
+- Policy: all 7 opa tests pass. Where the text runs out: delay compensation comes from
+  case law (Sturgeon); extraordinary circumstances go to a person; the carrier's option
+  to halve is flagged, not applied. A flight of exactly 3,500 km counts as medium.
+- API: /decide returns EUR 250 for the short-flight example (900 km, cancelled with two
+  days' notice), citing Art. 3(1) and 7(1), with no human review needed.
+- Agent: the gather step uses Gemini to fill a typed form from the traveller's message;
+  code works out which facts are missing and asks for them; OPA decides. Dublin to
+  Barcelona (about 1,500 km, cancelled): it asked for the distance and the notice in one
+  question, then returned EUR 250 under Art. 3(1) and 7(1). Dublin to Rome (about 1,900 km,
+  cancelled two days before): EUR 400. With the facts passed in directly, a claim where
+  the airline blamed a storm paused for a reviewer (OPA: not eligible, needs human review,
+  citing Art. 3(1) and 5(3)), then resumed with the reviewer's verdict.
 - Eval: skipped for time. The findings below come from reviewing the output by hand.
 
 ## What the extraction got wrong
@@ -70,6 +75,15 @@ Policy written in Rego with AI assistance and checked against the regulation.
 - Lesson: pipeline steps should be idempotent and retryable. In production, key the
   cache on a hash of the text, prompt and model.
 
+### 5. A missing fact was treated as "no"
+- What happened: if the traveller didn't mention a cause, the policy treated it as "no
+  extraordinary circumstances", because Rego's `not` is true for a missing field. The
+  agent then told the traveller they were eligible, as if that were final.
+- What I changed: the reply now says "unless the airline proves extraordinary
+  circumstances (Art. 5(3))", which matches the Regulation's burden of proof.
+- Lesson: unknown is not false. Facts like the cause belong to the airline's records and
+  should come from a tool, not from the traveller or a default.
+
 ## What I'd do next
 - Split list items (a), (b), (c) in code before extraction, which fixes the stitched quotes.
 - Accept quotes made of verbatim fragments in order, rather than one exact string.
@@ -77,3 +91,8 @@ Policy written in Rego with AI assistance and checked against the regulation.
 - Build a gold set for Articles 3 and 5–8 before changing the prompt, then measure
   precision and recall on every prompt change in CI, and use it to compare models.
 - Fetch the official XML instead of copy-pasting the text.
+- Take the route, distance and cause of the disruption from the airline's records
+  through tools, rather than from the traveller.
+- Persist claims with a Postgres checkpointer, and add endpoints to start a claim and
+  for a reviewer to resume one.
+- Cap how many times the agent asks before handing over to a person.
