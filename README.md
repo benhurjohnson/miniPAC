@@ -37,10 +37,11 @@ flowchart LR
    prohibition; who it binds; conditions; exceptions; and the exact source sentence
    (`pac/extract.py`, schema in `pac/schema.py`). Rule IDs are assigned in code, and each
    article's result is cached in `data/extracted/<model>/`.
-3. **Check each quote** against its article in code. Rules whose quote isn't in the text
-   go to the `ungrounded` list in `rules.json`.
+3. **Check each quote** against its article in code. Rules whose quote isn't found word
+   for word in the article (ignoring whitespace) go to the `ungrounded` list in
+   `rules.json`.
 4. **Write the policy** in Rego (`policy/eu261.rego`) from the regulation text, using
-   `rules.json` as a checklist. Every rule cites its article.
+   `rules.json` as a checklist. Each rule is commented with the provision it implements.
 5. **Test** the policy against worked examples (`policy/eu261_test.rego`).
 
 ### Run time: decide a claim
@@ -56,11 +57,11 @@ flowchart TD
     HR --> RE
 ```
 
-1. **gather:** Gemini fills a form of claim facts from the traveller's message, leaving
-   anything unsaid empty.
+1. **gather:** Gemini fills a form of claim facts from the traveller's message, and is
+   told to leave anything unsaid empty.
 2. **ask:** if a required fact is missing, the agent pauses, asks for it, then gathers again.
 3. **decide:** the agent asks OPA for a decision through `call_opa`, which fails closed
-   if OPA is unreachable.
+   if OPA is unreachable or returns no decision.
 4. **human_review:** if OPA says a person must decide, for example because the airline
    claims extraordinary circumstances, the run pauses until a reviewer resumes it.
 5. **respond:** the reply gives the amount and the articles. If the cause of the
@@ -75,6 +76,7 @@ stopped. The FastAPI endpoint `/decide` exposes the same policy decision over HT
 | Path | What it is |
 |---|---|
 | `data/eu261.txt` | The regulation's text |
+| `data/extracted/` | Cached extraction results, one file per article per model |
 | `pac/split.py` | Splits the text into articles |
 | `pac/schema.py` | The rule schema and the quote check |
 | `pac/extract.py` | Extraction with Gemini, through Instructor |
@@ -84,6 +86,7 @@ stopped. The FastAPI endpoint `/decide` exposes the same policy decision over HT
 | `app/main.py` | The `/decide` endpoint and `call_opa` |
 | `app/agent.py` | The LangGraph claims agent |
 | `chat.py` | A terminal chat with the agent |
+| `check.py`, `probe.py` | Scripts used to diagnose Gemini timeouts and find a model that answers |
 | `NOTES.md` | What broke, what the extraction got wrong, and what I'd do next |
 
 ## Running it
@@ -97,13 +100,14 @@ docker run -d --name opa -p 8181:8181 -v "$PWD/policy:/policy" \
   openpolicyagent/opa:latest run --server --watch --addr 0.0.0.0:8181 /policy
 ```
 
-Extract the rules. Results are cached, so a rerun only redoes failures:
+Extract the rules. Results are cached per article, so a rerun only redoes failures; with
+the cache in this repo, it rebuilds `rules.json` without calling Gemini:
 
 ```bash
 uv run --env-file .env python -m pac.extract
 ```
 
-Test the policy:
+Test the policy (all 7 tests should pass):
 
 ```bash
 docker run --rm -v "$PWD/policy:/policy" openpolicyagent/opa:latest test /policy -v
@@ -113,8 +117,11 @@ Call the API:
 
 ```bash
 uv run uvicorn app.main:app
+
+# in a second terminal:
 curl -s localhost:8000/decide -H 'content-type: application/json' \
   -d '{"disruption":"cancellation","distance_km":900,"departs_eu":true,"notice_days":2,"reroute_depart_early_h":0,"reroute_arrive_late_h":5}'
+# {"amount_eur":250,"carrier_may_halve":false,"citations":["Art. 3(1)","Art. 7(1)"],"eligible":true,"needs_human_review":false}
 ```
 
 Chat with the agent:
@@ -141,7 +148,8 @@ Agent: Eligible: True, EUR 250 (Art. 3(1), Art. 7(1)), unless the airline proves
 
 ## Limitations
 - One regulation. The policy was written with AI assistance and checked by hand against
-  the text; it isn't generated from the extraction.
+  the text; it isn't generated from the extraction (see `NOTES.md` for how I'd close
+  that gap).
 - The extraction has known errors, documented in `NOTES.md`, and there's no gold-set
   evaluation yet.
 - Article 3(2) (confirmed reservation, on-time check-in) isn't covered.
